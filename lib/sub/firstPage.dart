@@ -6,13 +6,16 @@ class FirstApp extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          Container(
+            margin: EdgeInsets.all(10),
+            child: Image.asset('unist_logo.png', width: 500, height: 500, fit: BoxFit.fill)
+          ),
           Center(
             child: Text('UGS\nUNIST',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.blue, fontSize: 40),
             ),
           ),
-          Image.asset('unist_logo.png', width: 1000, height: 1000),
         ],
       ),
     );

@@ -59,11 +59,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     super.initState();
     controller = TabController(length: 2, vsync: this);
     lectureList.add(Lecture(lectureName: "객체 지향 프로그래밍", kind: "전필", professor: "김 컴퓨터",
-        imagePath: "assets/unist_logo.png"));
+        credit: 3, imagePath: "assets/unist_logo.png"));
     lectureList.add(Lecture(lectureName: "운영체제", kind: "전필", professor: "빌 게이츠",
-        imagePath: "assets/unist_logo.png"));
+        credit: 3, imagePath: "assets/unist_logo.png"));
     lectureList.add(Lecture(lectureName: "나의 정체성", kind: "교양", professor: "김교양",
-        imagePath: "assets/unist_logo.png"));
+        credit: 3, imagePath: "assets/unist_logo.png"));
   }
 
   @override

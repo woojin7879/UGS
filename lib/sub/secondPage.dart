@@ -17,7 +17,15 @@ class SecondApp extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         Image.asset(list![position].imagePath! , height: 100, width: 100, fit: BoxFit.contain,),
-                        Text(list![position].lectureName!),
+                        Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Text(list![position].lectureName!),
+                        ),
+                        Spacer(),
+                        Padding(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Text('${list![position].credit!}학점', textAlign: TextAlign.right),
+                        ),
                       ],
                     ),
                   ),

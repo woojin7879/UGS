@@ -5,6 +5,7 @@ class Lecture{
   String? lectureName;
   String? kind;
   String? professor;
+  int? credit;
   bool?  retake = false;
 
   Lecture(
@@ -12,5 +13,6 @@ class Lecture{
     required this.kind,
     required this.professor,
     required this.imagePath,
+    this.credit,
     this.retake});
 }

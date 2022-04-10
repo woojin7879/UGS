@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'sub/firstPage.dart';
 import 'sub/secondPage.dart';
+import 'lectureItem.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,10 +53,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
 
   TabController? controller;
+  List<Lecture> lectureList = List.empty(growable: true);
   @override
   void initState() {
     super.initState();
     controller = TabController(length: 2, vsync: this);
+    lectureList.add(Lecture(lectureName: "객체 지향 프로그래밍", kind: "전필", professor: "김 컴퓨터",
+        imagePath: "assets/unist_logo.png"));
+    lectureList.add(Lecture(lectureName: "운영체제", kind: "전필", professor: "빌 게이츠",
+        imagePath: "assets/unist_logo.png"));
+    lectureList.add(Lecture(lectureName: "나의 정체성", kind: "교양", professor: "김교양",
+        imagePath: "assets/unist_logo.png"));
   }
 
   @override
@@ -65,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           title: Text('TabBar Example'),
         ),
         body: TabBarView(
-          children: <Widget>[FirstApp(), SecondApp()],
+          children: <Widget>[FirstApp(), SecondApp(list: lectureList)],
           controller: controller,
         ),
         bottomNavigationBar: TabBar(tabs: <Tab>[

@@ -15,4 +15,8 @@ class Lecture{
     required this.imagePath,
     this.credit,
     this.retake});
+
+  same(String lowerCase) {
+    return lectureName?.contains(lowerCase);
+  }
 }

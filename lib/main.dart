@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ugs/sub/thirdPage.dart';
 
 import 'sub/firstPage.dart';
 import 'sub/secondPage.dart';
@@ -57,12 +58,14 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 2, vsync: this);
+    controller = TabController(length: 3, vsync: this);
     lectureList.add(Lecture(lectureName: "객체 지향 프로그래밍", kind: "전필", professor: "김 컴퓨터",
         credit: 3, imagePath: "assets/unist_logo.png"));
     lectureList.add(Lecture(lectureName: "운영체제", kind: "전필", professor: "빌 게이츠",
         credit: 3, imagePath: "assets/unist_logo.png"));
     lectureList.add(Lecture(lectureName: "나의 정체성", kind: "교양", professor: "김교양",
+        credit: 3, imagePath: "assets/unist_logo.png"));
+    lectureList.add(Lecture(lectureName: "시스템 프로그래밍", kind: "전필", professor: "김심스템",
         credit: 3, imagePath: "assets/unist_logo.png"));
   }
 
@@ -73,12 +76,13 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           title: Text('TabBar Example'),
         ),
         body: TabBarView(
-          children: <Widget>[FirstApp(), SecondApp(list: lectureList)],
+          children: <Widget>[FirstApp(), SecondApp(list: lectureList), ThirdApp(list: lectureList)],
           controller: controller,
         ),
         bottomNavigationBar: TabBar(tabs: <Tab>[
           Tab(icon: Icon(Icons.home, color: Colors.blue),) ,
-          Tab(icon: Icon(Icons.looks_two, color: Colors.blue),)
+          Tab(icon: Icon(Icons.looks_two, color: Colors.blue),),
+          Tab(icon: Icon(Icons.search, color: Colors.blue),)
         ], controller: controller,
         )
     );

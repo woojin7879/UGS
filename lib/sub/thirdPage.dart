@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ugs/lectureItem.dart';
 
@@ -15,6 +16,7 @@ class _ThirdAppState extends State<ThirdApp> {
   List<Lecture>? lectureListSearch;
   final FocusNode _textFocusNode = FocusNode();
   TextEditingController? _textEditingController = TextEditingController();
+
   @override
   void dispose() {
     _textFocusNode.dispose();
@@ -92,7 +94,24 @@ class _ThirdAppState extends State<ThirdApp> {
                         context: context, builder: (BuildContext context) => dialog);
                   },
                   onLongPress: (){
-                    lectureListSearch!.removeAt(position);
+                    showCupertinoModalPopup<void>(
+                        context: context,
+                      builder: (BuildContext context) => CupertinoActionSheet(
+                          message: Text('변경하시겠습니까?'),
+                          actions: [
+                            CupertinoButton(child: Text('수정'), onPressed: () {}),
+                            CupertinoButton(child: Text('삭제'), onPressed: () {
+                              setState(() {
+                                list!.remove(lectureListSearch![position]);
+                                lectureListSearch!.removeAt(position);
+                              });
+                            }),
+                          ],
+                          cancelButton: CupertinoButton(child: Text('취소'), onPressed: () {
+                            Navigator.of(context).pop();
+                          })
+                      )
+                    );
                   },
                 );
               },
